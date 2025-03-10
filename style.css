@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('Lahcen.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #366;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* شريط العلوي */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.8);
+    color: #ff0;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px #0400dc;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.logo {
+    position: absolute;
+    left: 25px;
+    top: 5px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav button {
+    background: #333;
+    color: #0400dc;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 17px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: #222;
+    color: #0400dc;
+    width: calc(33% - 20px);
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px #0400dc;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px #0400dc;
+}
+
+/* الفوتر */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 98%;
+    background: rgba(34, 34, 34, 0.8);
+    color: #0400dc;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px #0400dc;
+}

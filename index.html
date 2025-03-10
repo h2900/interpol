@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soon..</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="styles.css"> <!-- ربط ملف CSS -->
+</head>
+<body>
+    <header>
+        <img src="Interpol Aflou.png" alt="لوغو" class="logo" onclick="showSection('main')">
+        <nav>
+            <button onclick="showSection('main')"><i class="fas fa-home"></i> الرئيسية</button>
+            <button onclick="showSection('home')"><i class="fas fa-newspaper"></i> أخبار</button>
+            <button onclick="showSection('videos')"><i class="fas fa-video"></i> فيديوهات</button>
+            <button onclick="showSection('images')"><i class="fas fa-image"></i> صور</button>
+            <button onclick="showSection('results')"><i class="fas fa-trophy"></i> soon..</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="main" class="section active main-background">
+            <h1>رئيسية</h1>
+            <h3>WELCOME BACK</h3>
+            <div class="card-container">
+                <div class="card">
+                    <img src="interpol.png" alt="صورة 1">
+                    <p class="card-title">Lahcen Picasso</p>
+                </div>
+            </div>
+            <div class="snow" id="snowContainer"></div>
+        </section>
+
+        <section id="home" class="section">
+            <h1>أخبار</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="Interpol Aflou.png" alt="خبر 1">
+                    <p class="card-title">Picasso Web📉</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="videos" class="section">
+            <h1>فيديوهات</h1>
+            <div class="card-container">
+                <div class="card">
+                    <a href="قران كريم.mp4" target="_blank">
+                        <img src="....png" alt="فيديو 1">
+                        <p class="card-title"></p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="images" class="section">
+            <h1>صور</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="Interpol Aflou.png" alt="صورة 2">
+                    <p>picasso</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section">
+            <h1>sooon..</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="Interpol Aflou.png" alt="">
+                    <p>picasso</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-text">حقوق الطبع والنشر © 2024 جميع الحقوق محفوظة | Developer by: H29</div>
+        <img src="Interpol Aflou.png" alt="Logo" class="logo">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/omg.h29/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/interpol.h29" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@hassone_picasso" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://discord.gg/3NqUTUnpqT" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- ربط ملف JavaScript -->
+</body>
+</html>
