@@ -1,32 +1,40 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('Lahcen.png') no-repeat center center;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #ff3;
     color: #366;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    padding-top: 50px;
+    background: url('Lahcen.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 100px;
 }
 
-/* شريط العلوي */
 header {
+    display: flex;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background-color: rgba(34, 34, 34, 0.8);
-    color: #ff0;
+    color: #fff;
+    padding: 20px 0;
+    height: 50px;
     text-align: center;
-    padding: 10px;
     box-shadow: 0 4px 10px #0400dc;
     backdrop-filter: blur(5px);
+    align-items: center;
+    padding: 10px 15px;
+    justify-content: center;
     z-index: 1000;
 }
 
+.header-logo {
+    display: none; /* تخفي الصورة بشكل افتراضي */
+ }
+
 .logo {
-    position: absolute;
-    left: 25px;
-    top: 5px;
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -38,56 +46,483 @@ header {
     transform: scale(1.1);
 }
 
+nav {
+    display: flex;
+}
+
 nav button {
     background: #333;
     color: #0400dc;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     margin: 5px;
     border-radius: 25px;
     cursor: pointer;
     transition: background 0.3s, transform 0.3s;
-    font-size: 17px;
+    font-size: 16px;
 }
 
+.section {
+    display: none;
+    padding: 20px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section.active {
+    display: block;
+    opacity: 1; 
+}
+
+h1 {
+   text-align: center;  /* يوسّط العنوان */
+   color: #fff; /* لون أبيض مع شفافية 90% */
+   z-index: 1000; /* يجعله فوق العناصر الأخرى */
+}
+
+h2 {
+   text-align: left; /* محاذاة لليسار */
+   color: #fff; /* لون أزرق فاتح مع شفافية 80% */
+   z-index: 1000;
+}
+
+h3 {
+   text-align: right; /* محاذاة لليمين */
+   color: #fff; /* لون وردي فاتح مع شفافية 80% */
+   z-index: 1000;
+}
+
+/* ✅ تصميم البطاقات */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+align-items: stretch;
 }
 
 .card {
-    background: #222;
-    color: #0400dc;
-    width: calc(33% - 20px);
-    border-radius: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 8px #0400dc;
+background: #222;
+color: #0400dc;
+width: calc(33% - 20px);
+border-radius: 15px;
+overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s;
+box-shadow: 0 2px 8px #0400dc;
+text-align: center;
+cursor: pointer;
+max-width: 100%;
 }
 
 .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px 15px 0 0;
+width: 100%;
+height: auto;
+border-radius: 15px 15px 0 0;
+cursor: pointer;
+transition: transform 0.3s ease-in-out;
+object-fit: cover;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px #0400dc;
+transform: translateY(-5px);
+box-shadow: 0 4px 15px #0400dc;
 }
 
-/* الفوتر */
-footer {
+/* ✅ تصميم نافذة عرض الصورة */
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+display: flex;
+align-items: center;
+justify-content: center;
+visibility: hidden;
+opacity: 0;
+transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.overlay.active {
+visibility: visible;
+opacity: 1;
+}
+
+.overlay img {
+max-width: 90%;
+max-height: 80%;
+border-radius: 15px;
+}
+
+/* ✅ أزرار التحكم */
+.close-btn, .prev-btn, .next-btn, .fullscreen-btn {
+position: absolute;
+background: #0400dc;
+color: white;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+font-size: 18px;
+border-radius: 5px;
+transition: 0.3s;
+z-index: 1000;
+}
+
+.close-btn { top: 20px; right: 20px; }
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+.fullscreen-btn { bottom: 20px; right: 20px; }
+
+.close-btn:hover, .prev-btn:hover, .next-btn:hover, .fullscreen-btn:hover {
+background: #ff0000;
+}
+
+
+/* نمط الكرت */
+.video-card {
+width: 300px;
+cursor: pointer;
+transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+transform: scale(1.05);
+}
+
+/* الغطاء الخلفي (لتضبيب الخلفية عند فتح الفيديو) */
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+backdrop-filter: blur(5px);
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease;
+}
+
+/* الفيديو بوضع ملء الشاشة */
+.fullscreen-video {
+width: 90%;
+max-width: 900px;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* زر إغلاق الفيديو */
+.close-btn {
+position: absolute;
+top: 20px;
+right: 20px;
+font-size: 30px;
+color: white;
+cursor: pointer;
+}
+
+
+
+/* شاشة العرض الكاملة للصورة */
+.fullscreen {
     position: fixed;
-    bottom: 0;
-    width: 98%;
-    background: rgba(34, 34, 34, 0.8);
-    color: #0400dc;
-    text-align: center;
-    padding: 15px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    display: none; /* إخفاؤه في البداية */
+}
+
+/* الصورة المكبرة */
+.fullscreen img {
+    width: 90%;
+    height: auto;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* زر الإغلاق */
+.fullscreen::after {
+    content: "✖";
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* شاشة العرض الكاملة للصورة والفيديو */
+.fullscreen {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.9);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 2000;
+display: none; /* إخفاؤه في البداية */
+}
+
+/* الفيديو المكبر */
+.fullscreen video {
+width: 90%;
+height: auto;
+max-height: 90%;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* زر الإغلاق */
+.fullscreen::after {
+content: "✖";
+position: absolute;
+top: 15px;
+right: 25px;
+font-size: 30px;
+color: white;
+cursor: pointer;
+font-weight: bold;
+}
+
+
+footer {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background-color: #111; /* لون الخلفية */
+color: white;
+text-align: center;
+padding: 15px 0;
+font-family: Arial, sans-serif;
+border-top: 3px #0400dc; /* خط أزرق أعلى الفوتر */
+}
+
+footer .logo {
+width: 150px; /* حجم الشعار */
+height: auto;
+margin-bottom: 10px;
+}
+
+footer .social-icons {
+margin: 10px 0;
+}
+
+footer .social-icons a {
+display: inline-block;
+margin: 0 10px;
+}
+
+footer .social-icons img {
+width: 30px; /* حجم أيقونات السوشيال */
+height: auto;
+transition: 0.3s;
+}
+
+footer .social-icons img:hover {
+opacity: 0.7;
+}
+
+footer p {
+font-size: 12px;
+opacity: 0.7;
+}
+
+footer::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 3px; /* سماكة الخط */
+background-color: #0400dc; /* لون الخط */
+}
+
+.social-icons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 10px #0400dc;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #0400dc;
+}
+
+.moving-text-container {
+text-align: center;
+overflow: hidden;
+white-space: nowrap;
+}
+
+body {
+user-select: none; /* منع تحديد النص */
+-webkit-user-select: none; /* للمتصفحات المبنية على WebKit */
+-moz-user-select: none; /* لمتصفح Firefox */
+-ms-user-select: none; /* لمتصفح Edge */
+}
+
+.menu-toggle {
+    display: block; /* اجعلها مرئية */
+    font-size: 25px; /* ضبط الحجم ليكون مناسباً */
+    cursor: pointer;
+    position: fixed; /* تثبيتها في الزاوية */
+    top: 11px; /* تحديد المسافة من الأعلى */
+    right: 30px; /* تحديد المسافة من اليمين */
+    z-index: 1000; /* جعلها فوق باقي العناصر */
+    background: none; /* إضافة خلفية */
+    padding: 10px; /* تحسين المظهر */
+    display: none; /* إخفاء العنصر بشكل افتراضي */
+}
+
+.mobile-logo {
+display: none; /* إخفاء الصورة في الوضع العادي */
+width: 300px; /* تكبير حجم اللوغو */
+height: auto; /* الحفاظ على تناسب الأبعاد */
+position: absolute;
+top: -25px; /* إنزاله قليلًا حتى لا يكون ملاصقًا للهيدر */
+left: 50%; /* وضعه في منتصف الشاشة */
+transform: translateX(-105%); /* التأكد أنه في المنتصف تمامًا */
+z-index: 1000; /* وضعه فوق العناصر الأخرى */
+}
+
+
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    background: rgba(34, 34, 34, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 15px #0400dc;
+}
+
+.mobile-nav button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: rgba(34, 34, 34, 0.9);
+    border: none;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mobile-nav button:hover {
+    background: #0400dc;
+}
+
+.text-container {
+    position: relative;
+    font-weight: bold;
+    border-right: 3px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    display: inline-block;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+
+.wnasatime-section {
+background-color: #111;
+color: white;
+padding: 20px;
+text-align: center;
+margin-top: 50px;
+border-radius: 10px;
+}
+.wnasatime-section h2 {
+color: #0400dc;
+margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+        
+   footer {
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
+        text-align: justify;
+        padding: 10px 2px 4px ;
+  }
+
+ .footer-text {
+        margin-bottom: 10px;
+        color: #0400dc;
+        font-size: 13px;
+   }
+
+  .social-icons {
+        justify-content: center;
+        margin-top: 10px;
+   }
+
+  .logo {
+        display: none;
+   }
+
+  .mobile-logo {
+        display: block;
+   }
+    
+   nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-nav.active {
+        display: block;
+    }
+
+    .card {
+width: 100%; /* يجعل البطاقات تأخذ كامل عرض الشاشة على الهاتف */
+}
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .footer-text {
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    body {
+        background-image: url('Interpol Aflou website.png'); /* استبدلها برابط أو مسار الصورة */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }
