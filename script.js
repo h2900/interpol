@@ -4,7 +4,9 @@ function showSection(sectionId) {
 }
 
 function toggleMenu() {
-    document.getElementById('mobileNav').classList.toggle('active');
+    let menu = document.getElementById("menu");
+    if (menu) {
+        menu.classList.toggle("active");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
