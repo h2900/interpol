@@ -9,6 +9,10 @@ body {
     background-size: cover;
     background-attachment: fixed;
     padding-bottom: 100px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -381,17 +385,56 @@ user-select: none; /* منع تحديد النص */
 -ms-user-select: none; /* لمتصفح Edge */
 }
 
+/* زر المينو */
 .menu-toggle {
-    display: block; /* اجعلها مرئية */
-    font-size: 25px; /* ضبط الحجم ليكون مناسباً */
+    font-size: 30px;
     cursor: pointer;
-    position: fixed; /* تثبيتها في الزاوية */
-    top: 11px; /* تحديد المسافة من الأعلى */
-    right: 30px; /* تحديد المسافة من اليمين */
-    z-index: 1000; /* جعلها فوق باقي العناصر */
-    background: none; /* إضافة خلفية */
-    padding: 10px; /* تحسين المظهر */
-    display: none; /* إخفاء العنصر بشكل افتراضي */
+    padding: 15px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+}
+
+/* المينو */
+.menu {
+    width: 250px;
+    height: 100vh;
+    background: #333;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: 0.3s;
+    padding-top: 50px;
+}
+
+/* عندما تكون القائمة مفتوحة */
+.menu.active {
+    left: 0;
+}
+
+/* قائمة الروابط */
+.menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+}
+
+.menu ul li a:hover {
+    background: #575757;
 }
 
 .mobile-logo {
