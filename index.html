@@ -11,7 +11,7 @@
 <body>
     <header>
         <img src="Interpol Aflou.png" alt="لوغو" class="logo" onclick="showSection('main')">
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <img src="iii_cleaned.png" alt="INTERPOL" class="mobile-logo">
             <i class="fas fa-bars"></i>
         </div>
@@ -22,6 +22,17 @@
             <button onclick="showSection('images')"><i class="fas fa-image"></i> PHOTO</button>
             <button onclick="showSection('results')"><i class="fas fa-trophy"></i> INVENT</button>
         </nav>
+
+ <nav id="menu" class="menu">
+    <ul>
+            <button onclick="showSection('main')"><i class="fas fa-home"></i> MAIN </button>
+            <button onclick="showSection('home')"><i class="fas fa-newspaper"></i> NEWS</button>
+            <button onclick="showSection('videos')"><i class="fas fa-video"></i> VIDEOS</button>
+            <button onclick="showSection('images')"><i class="fas fa-image"></i> PHOTO</button>
+            <button onclick="showSection('results')"><i class="fas fa-trophy"></i> INVENT</button>
+    </ul>
+</nav>
+     
     </header>
 
     <main>
