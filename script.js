@@ -140,4 +140,38 @@ img.addEventListener("click", function () {
     openGallery(index);
 });
 });
+ 
 
+
+  const sectionIds = ['main', 'home', 'videos', 'images', 'results'];
+  let currentIndex = 0;
+  let startX = 0;
+  let endX = 0;
+
+  document.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  document.addEventListener('touchend', (e) => {
+    endX = e.changedTouches[0].clientX;
+    let diff = endX - startX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff < 0 && currentIndex < sectionIds.length - 1) {
+        currentIndex++;
+        showSection(sectionIds[currentIndex]);
+      } else if (diff > 0 && currentIndex > 0) {
+        currentIndex--;
+        showSection(sectionIds[currentIndex]);
+      }
+    }
+  });
+
+  // تأكد من تحديث المؤشر عند استخدام الأزرار يدويًا أيضًا:
+  function showSection(id) {
+    sectionIds.forEach((sec, index) => {
+      const el = document.getElementById(sec);
+      if (el) el.style.display = (sec === id) ? 'block' : 'none';
+      if (sec === id) currentIndex = index;
+    });
+  }
